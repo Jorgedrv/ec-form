@@ -1,0 +1,6 @@
+.card:hover{
+    box-shadow: 5px 6px 6px 2px #8F8B99;
+    background-color: #efefef;
+    text-decoration: none;
+    border: 1px solid black;
+}
