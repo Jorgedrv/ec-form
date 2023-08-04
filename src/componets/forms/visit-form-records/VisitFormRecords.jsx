@@ -12,6 +12,7 @@ const VisitFormRecords = () => {
     const [show, setShow] = useState(false);
     const [currentPage, setCurrentPage] = useState(0);
     const [totalPages, setTotalPages] = useState(0);
+    const [spinner, setSpinner] = useState(false);
 
     useEffect(() => {
         findAll(currentPage);
@@ -19,6 +20,7 @@ const VisitFormRecords = () => {
     }, [currentPage]);
 
     const findAll = (page) => {
+        setSpinner(true);
         axios.get(readUrl, {
             params: {
                 page: page,
@@ -34,6 +36,7 @@ const VisitFormRecords = () => {
                 setRecords(response.data.content);
                 setCurrentPage(response.data.number);
                 setTotalPages(response.data.totalPages);
+                setSpinner(false);
             })
             .catch(error => {
                 console.log(error)
@@ -64,42 +67,43 @@ const VisitFormRecords = () => {
 
     return (
         <Container>
-            {records.length <= 0 ?
+            {spinner ?
                 <div style={{ marginTop: "120px" }} className="text-center"> <Spinner animation="border" role="status" /> </div> :
-                <div>
-                    <h1 className="display-4 centered">Records</h1>
-                    <Table striped bordered hover>
-                        <thead>
-                            <tr>
-                                <th key="id">ID</th>
-                                <th key="firstName">First Name</th>
-                                <th key="lastName">Last Name</th>
-                                <th key="email">Email</th>
-                                <th key="phone">Phone</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {
-                                records.map(record => (
-                                    <tr key={record.id}>
-                                        <td>{record.id}</td>
-                                        <td>{record.name}</td>
-                                        <td>{record.lastName}</td>
-                                        <td>{record.email}</td>
-                                        <td>{record.mobilePhone}</td>
-                                        <td style={{ textAlign: "center" }}>
-                                            <div style={{ cursor: "pointer" }} onClick={() => findById(record)}><img alt="img" src="eye.svg" /></div>
-                                        </td>
-                                    </tr>
-                                ))
-                            }
-                        </tbody>
-                    </Table>
-                    <PaginationComponent currentPage={currentPage} totalPages={totalPages} findAll={findAll} />
-                    <ModalComponent size="xl" title="Detail record" show={show} handleModal={handleModal}>
-                        <VisitFormRecordsDetail detailRecord={detailRecord} />
-                    </ModalComponent>
-                </div>
+                records.length <= 0 ? <div className="text-center"><h1 className="display-4 centered">No records found</h1> </div> :
+                    <div>
+                        <div className="text-center"><h1 className="display-4 centered">Records</h1></div>
+                        <Table striped bordered hover>
+                            <thead>
+                                <tr>
+                                    <th key="id">ID</th>
+                                    <th key="firstName">First Name</th>
+                                    <th key="lastName">Last Name</th>
+                                    <th key="email">Email</th>
+                                    <th key="phone">Phone</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {
+                                    records.map(record => (
+                                        <tr key={record.id}>
+                                            <td>{record.id}</td>
+                                            <td>{record.name}</td>
+                                            <td>{record.lastName}</td>
+                                            <td>{record.email}</td>
+                                            <td>{record.mobilePhone}</td>
+                                            <td style={{ textAlign: "center" }}>
+                                                <div style={{ cursor: "pointer" }} onClick={() => findById(record)}><img alt="img" src="eye.svg" /></div>
+                                            </td>
+                                        </tr>
+                                    ))
+                                }
+                            </tbody>
+                        </Table>
+                        <PaginationComponent currentPage={currentPage} totalPages={totalPages} findAll={findAll} />
+                        <ModalComponent size="xl" title="Detail record" show={show} handleModal={handleModal}>
+                            <VisitFormRecordsDetail detailRecord={detailRecord} />
+                        </ModalComponent>
+                    </div>
             }
         </Container>
     );
