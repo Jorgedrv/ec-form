@@ -1,6 +1,6 @@
 import { Form, Row, Col } from "react-bootstrap";
 
-const VisitFormRecordsDetail = ({ detailRecord }) => {
+const VisitedFormRecordsDetail = ({ detailRecord }) => {
     return (
         <>
             <Row className="mb-3">
@@ -114,4 +114,4 @@ const VisitFormRecordsDetail = ({ detailRecord }) => {
     );
 }
 
-export default VisitFormRecordsDetail;
+export default VisitedFormRecordsDetail;

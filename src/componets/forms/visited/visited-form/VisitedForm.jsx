@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import { Form, Row, Col, Container, Alert } from "react-bootstrap";
-import states from "../../../backoffice/states.json";
-import hereas from "../../../backoffice/hereas.json";
-import information from "../../../backoffice/information.json";
-import readyto from "../../../backoffice/readyto.json";
-import axios from "../../../axios";
-import { createUrl } from "../../../common/endpoints";
-import SpinnerButton from "../../spinner/SpinnerButton";
+import states from "../../../../backoffice/states.json";
+import hereas from "../../../../backoffice/hereas.json";
+import information from "../../../../backoffice/information.json";
+import readyto from "../../../../backoffice/readyto.json";
+import axios from "../../../../axios";
+import { createUrl } from "../../../../common/endpoints";
+import SpinnerButton from "../../../spinner/SpinnerButton";
 
-const VisitForm = ({ handleModal }) => {
+const VisitedForm = () => {
     const [name, setName] = useState("");
     const [lastName, setLastName] = useState("");
     const [email, setEmail] = useState("");
@@ -61,7 +61,7 @@ const VisitForm = ({ handleModal }) => {
                 clearForm();
                 setTimeout(() => {
                     setSpinner(false);
-                    handleModal();
+                    window.location.href = '/'
                 }, 1000);
             })
             .catch(error => console.log(error));
@@ -87,6 +87,7 @@ const VisitForm = ({ handleModal }) => {
 
     return (
         <Container fluid>
+            <div className="text-center"><h1 className="display-4 centered">Visited Form</h1></div>
             <Form id="create-visit-form" noValidate validated={validated} onSubmit={onSubmitForm}>
                 <Row className="mb-3">
                     <Form.Group as={Col} controlId="formGridName">
@@ -122,7 +123,7 @@ const VisitForm = ({ handleModal }) => {
                         <Form.Label>State</Form.Label>
                         <Form.Select required defaultValue={""} value={state} onChange={e => setState(e.target.value)} >
                             <option value={""}>Choose...</option>
-                            {states.map(state => <option key={state.name} value={state.value} label={state.name} />)}
+                            {states.map(state => <option key={state.value} value={state.value}>{state.name}</option>)}
                         </Form.Select>
                     </Form.Group>
                     <Form.Group as={Col} controlId="formGridPostalCode">
@@ -192,4 +193,4 @@ const VisitForm = ({ handleModal }) => {
     );
 }
 
-export default VisitForm;
+export default VisitedForm;

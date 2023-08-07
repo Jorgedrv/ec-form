@@ -19,7 +19,7 @@ const Login = () => {
             .then(response => {
                 if (response.data.token) {
                     localStorage.setItem("token", response.data.token);
-                    window.location.href = "/visit-form-records"   
+                    window.location.href = "/visited-form-records"   
                 }
             })
             .catch(err => {
