@@ -34,18 +34,12 @@ const Navigation = () => {
               <Nav.Link eventKey={1} as={Link} to="/">Home</Nav.Link>
               {hasJWT() ?
                 <Dropdown data-bs-theme="dark">
-                  <Dropdown.Toggle id="dropdown-button-dark-example1" variant="secondary">
+                  <Dropdown.Toggle id="dropdown-button-dark-example1" variant="primary">
                     Forms
                   </Dropdown.Toggle>
                   <Dropdown.Menu>
                     <Dropdown.Item>
                       <Nav.Link eventKey={2} as={Link} to="visited-form-records">Visited form records</Nav.Link>
-                    </Dropdown.Item>
-                    <Dropdown.Item>
-                      <Nav.Link eventKey={2} as={Link} to="visited-form-records">English clasess</Nav.Link>
-                    </Dropdown.Item>
-                    <Dropdown.Item>
-                      <Nav.Link eventKey={2} as={Link} to="visited-form-records">Spanish classes</Nav.Link>
                     </Dropdown.Item>
                   </Dropdown.Menu>
                 </Dropdown>

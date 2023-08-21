@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { Form, Row, Col, Container, Alert } from "react-bootstrap";
-import states from "../../../../backoffice/states.json";
-import hereas from "../../../../backoffice/hereas.json";
-import information from "../../../../backoffice/information.json";
-import readyto from "../../../../backoffice/readyto.json";
-import axios from "../../../../axios";
-import { createUrl } from "../../../../common/endpoints";
-import SpinnerButton from "../../../spinner/SpinnerButton";
+import states from "../../../backoffice/states.json";
+import hereas from "../../../backoffice/hereas.json";
+import information from "../../../backoffice/information.json";
+import readyto from "../../../backoffice/readyto.json";
+import axios from "../../../axios";
+import { createUrl } from "../../../common/endpoints";
+import SpinnerButton from "../../spinner/SpinnerButton";
 
 const VisitedForm = () => {
     const [name, setName] = useState("");
@@ -184,10 +184,10 @@ const VisitedForm = () => {
                         />
                     </Form.Group>
                 </Row>
+                <SpinnerButton spinner={spinner}>Submit</SpinnerButton>
                 {
                     sent ? <Alert key="success" variant="success">Form was sent correctly</Alert> : <></>
                 }
-                <SpinnerButton spinner={spinner}>Submit</SpinnerButton>
             </Form>
         </Container>
     );
