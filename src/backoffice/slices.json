@@ -1,10 +1,14 @@
 [
     {
-        "image": "images/english-classes.jpg",
-        "url": "/visited-form"
+        "image": "images/english-form.jpg",
+        "url": "/english-form"
     },
     {
-        "image": "images/spanish-classes.jpg",
+        "image": "images/spanish-form.jpg",
+        "url": "/spanish-form"
+    },
+    {
+        "image": "images/visited-form.jpg",
         "url": "/visited-form"
     }
 ]

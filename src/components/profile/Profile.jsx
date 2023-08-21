@@ -9,12 +9,12 @@ const Profile = () => {
 
     return (
         <Dropdown>
-        <Dropdown.Toggle variant="success" id="dropdown-basic">
-            Account
-        </Dropdown.Toggle>
-        <Dropdown.Menu>
-            <Dropdown.Item onClick={handleLogout}>Logout</Dropdown.Item>
-        </Dropdown.Menu>
+            <Dropdown.Toggle variant="success" id="dropdown-basic">
+                Account
+            </Dropdown.Toggle>
+            <Dropdown.Menu>
+                <Dropdown.Item onClick={handleLogout}>Logout</Dropdown.Item>
+            </Dropdown.Menu>
         </Dropdown>
     );
 }
