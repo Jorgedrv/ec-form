@@ -30,13 +30,16 @@ const VisitedForm = () => {
 
     const onSubmitForm = async (e) => {
         e.preventDefault();
+        setSent(false);
         const form = e.currentTarget;
         if (form.checkValidity() === false) {
             e.stopPropagation();
             setValidated(true);
             return;
+        } else {
+            setValidated(false);
         }
-        
+
         setSpinner(true);
         const body = {
             name: name,
@@ -57,11 +60,10 @@ const VisitedForm = () => {
         };
         await axios.post(createUrl, body)
             .then(response => {
-                setSent(true);
                 clearForm();
                 setTimeout(() => {
                     setSpinner(false);
-                    window.location.href = '/'
+                    setSent(true);
                 }, 1000);
             })
             .catch(error => console.log(error));
@@ -173,7 +175,7 @@ const VisitedForm = () => {
                         </Form.Select>
                     </Form.Group>
                 </Row>
-                <Row className="mb-3">
+                <Row >
                     <Form.Group as={Col} controlId="formGridName">
                         <Form.Label>Prayer requests, comments, or other updates</Form.Label>
                         <Form.Control
@@ -186,7 +188,7 @@ const VisitedForm = () => {
                 </Row>
                 <SpinnerButton spinner={spinner}>Submit</SpinnerButton>
                 {
-                    sent ? <Alert key="success" variant="success">Form was sent correctly</Alert> : <></>
+                    sent ? <Alert style={{marginTop: 15}} key="success" variant="success">Form was sent correctly</Alert> : <></>
                 }
             </Form>
         </Container>
