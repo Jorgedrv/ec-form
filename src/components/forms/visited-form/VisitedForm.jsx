@@ -175,7 +175,7 @@ const VisitedForm = () => {
                         </Form.Select>
                     </Form.Group>
                 </Row>
-                <Row >
+                <Row className="mb-3">
                     <Form.Group as={Col} controlId="formGridName">
                         <Form.Label>Prayer requests, comments, or other updates</Form.Label>
                         <Form.Control
