@@ -85,11 +85,11 @@ const EnglishForm = () => {
                         <Form.Control required placeholder="Apellidos" value={lastName} onChange={e => setLastName(e.target.value)} />
                     </Form.Group>
                 </Row>
+                <Form.Group className="mb-3" as={Col} controlId="formGridStreet">
+                    <Form.Label>Dirección</Form.Label>
+                    <Form.Control required placeholder="1480 Main Street" value={street} onChange={e => setStreet(e.target.value)} />
+                </Form.Group>
                 <Row className="mb-3">
-                    <Form.Group as={Col} controlId="formGridStreet">
-                        <Form.Label>Dirección</Form.Label>
-                        <Form.Control required placeholder="1480 Main Street" value={street} onChange={e => setStreet(e.target.value)} />
-                    </Form.Group>
                     <Form.Group as={Col} controlId="formGridCity">
                         <Form.Label>Ciudad</Form.Label>
                         <Form.Control required placeholder="New York" value={city} onChange={e => setCity(e.target.value)} />
@@ -100,17 +100,23 @@ const EnglishForm = () => {
                     </Form.Group>
                 </Row>
                 <Row className="mb-3">
-                    <Form.Group as={Col} controlId="formGridPhone">
-                        <Form.Label>Teléfono</Form.Label>
-                        <Form.Control required placeholder="931999999" value={phone} onChange={e => setPhone(e.target.value)} />
-                    </Form.Group>
                     <Form.Group as={Col} controlId="formGridEmail">
                         <Form.Label>Correo Electrónico</Form.Label>
                         <Form.Control required placeholder="example@gmail.com" value={email} onChange={e => setEmail(e.target.value)} />
                     </Form.Group>
+                    <Form.Group as={Col} controlId="formGridPhone">
+                        <Form.Label>Teléfono</Form.Label>
+                        <Form.Control required placeholder="931999999" value={phone} onChange={e => setPhone(e.target.value)} />
+                    </Form.Group>
+                </Row>
+                <Row className="mb-3">
                     <Form.Group as={Col} controlId="formGridCountryOfBirth">
                         <Form.Label>Pais de Nacimiento</Form.Label>
                         <Form.Control required placeholder="United States" value={countryOfBirth} onChange={e => setCountryOfBirth(e.target.value)} />
+                    </Form.Group>
+                    <Form.Group as={Col} controlId="formGridEducation">
+                        <Form.Label>Educación</Form.Label>
+                        <Form.Control required placeholder="Bachelor" value={education} onChange={e => setEducation(e.target.value)} />
                     </Form.Group>
                 </Row>
                 <Row className="mb-3">
@@ -118,12 +124,8 @@ const EnglishForm = () => {
                         <Form.Label>Edad</Form.Label>
                         <Form.Control required value={age} onChange={e => setAge(e.target.value)} />
                     </Form.Group>
-                    <Form.Group as={Col} controlId="formGridEducation">
-                        <Form.Label>Educación</Form.Label>
-                        <Form.Control required placeholder="Bachelor" value={education} onChange={e => setEducation(e.target.value)} />
-                    </Form.Group>
                     <Form.Group as={Col} controlId="formGridEnglishLevel">
-                        <Form.Label>State</Form.Label>
+                        <Form.Label>English Level</Form.Label>
                         <Form.Select required defaultValue={""} value={englishLevel} onChange={e => setEnglishLevel(e.target.value)} >
                             <option value={""}>Choose...</option>
                             {englishLevels.map(state => <option key={state.value} value={state.value}>{state.value}</option>)}
