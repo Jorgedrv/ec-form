@@ -188,7 +188,7 @@ const VisitedForm = () => {
                 </Row>
                 <SpinnerButton spinner={spinner}>Submit</SpinnerButton>
                 {
-                    sent ? <Alert className="mb-3" key="success" variant="success">Form was sent correctly</Alert> : <></>
+                    sent ? <Alert style={{marginTop: 15}} key="success" variant="success">Form was sent correctly</Alert> : <></>
                 }
             </Form>
         </Container>
