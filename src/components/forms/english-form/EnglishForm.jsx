@@ -23,11 +23,14 @@ const EnglishForm = () => {
 
     const onSubmitForm = async (e) => {
         e.preventDefault();
+        setSent(false);
         const form = e.currentTarget;
         if (form.checkValidity() === false) {
             e.stopPropagation();
             setValidated(true);
             return;
+        } else {
+            setValidated(false);
         }
 
         setSpinner(true);
@@ -46,11 +49,10 @@ const EnglishForm = () => {
         };
         await axios.post(englishFormCreateUrl, body)
             .then(response => {
-                setSent(true);
                 clearForm();
                 setTimeout(() => {
                     setSpinner(false);
-                    window.location.href = '/'
+                    setSent(true);
                 }, 1000);
             })
             .catch(error => console.log(error));
@@ -134,7 +136,7 @@ const EnglishForm = () => {
                 </Row>
                 <SpinnerButton spinner={spinner}>Enviar</SpinnerButton>
                 {
-                    sent ? <Alert key="success" variant="success">Form was sent correctly</Alert> : <></>
+                     sent ? <Alert style={{marginTop: 15}} key="success" variant="success">Form was sent correctly</Alert> : <></>
                 }
             </Form>
         </Container>
