@@ -3,7 +3,7 @@ import { Form, Row, Col, Container, Alert } from "react-bootstrap";
 import SpinnerButton from "../../spinner/SpinnerButton";
 import { englishFormCreateUrl } from "../../../common/endpoints";
 import axios from "../../../axios";
-import englishLevels from "../../../backoffice/englishLevels.json";
+import levels from "../../../backoffice/levels.json";
 
 const EnglishForm = () => {
     const [age, setAge] = useState("");
@@ -127,10 +127,10 @@ const EnglishForm = () => {
                         <Form.Control required value={age} onChange={e => setAge(e.target.value)} />
                     </Form.Group>
                     <Form.Group as={Col} controlId="formGridEnglishLevel">
-                        <Form.Label>English Level</Form.Label>
+                        <Form.Label>Nivel de Inglés</Form.Label>
                         <Form.Select required defaultValue={""} value={englishLevel} onChange={e => setEnglishLevel(e.target.value)} >
                             <option value={""}>Choose...</option>
-                            {englishLevels.map(state => <option key={state.value} value={state.value}>{state.value}</option>)}
+                            {levels.map(state => <option key={state.value} value={state.value}>{state.name}</option>)}
                         </Form.Select>
                     </Form.Group>
                 </Row>
