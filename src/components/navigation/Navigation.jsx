@@ -20,13 +20,12 @@ const Navigation = () => {
         <Container fluid>
           <Navbar.Brand href="/">
             <Image
-              src="/logo.png"
-              width="50"
+              src="/logo-menu.png"
+              width="90"
               height="40"
               className="d-inline-block align-top"
               alt="React Bootstrap logo"
             />
-            Esperanza Church
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse className="ml-auto" id="navbarScroll">
