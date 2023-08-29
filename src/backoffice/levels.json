@@ -1,17 +1,22 @@
 [
     {
+        "name": "Principiante",
         "value": "Beginner"
     },
     {
+        "name": "Intermedio",
         "value": "Intermediate"
     },
     {
+        "name": "Intermedio superior",
         "value": "Upper Intermediate"
     },
     {
+        "name": "Avanzado",
         "value": "Advanced"
     },
     {
+        "name": "Fluido",
         "value": "Proficient"
     }
 ]
